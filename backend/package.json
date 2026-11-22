@@ -1,0 +1,56 @@
+{
+  "name": "hivemart-backend",
+  "version": "1.0.0",
+  "description": "HiveMart Backend - Event-Driven E-Commerce Platform for Hack With Bengaluru",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/scripts/migrate.js",
+    "seed": "node src/scripts/seed-products.js",
+    "search:setup": "node src/scripts/setup-search-index.js",
+    "search:index": "node src/scripts/index-products.js",
+    "kafka:setup-topics": "node src/scripts/setup-kafka-topics.js",
+    "kafka:publish-once": "node src/workers/outbox-publisher.js --once",
+    "outbox:worker": "node src/workers/outbox-publisher.js",
+    "kafka:consume": "node src/workers/order-consumer.js",
+    "admin:bootstrap": "node src/scripts/bootstrap-admin.js",
+    "analytics:worker": "node src/workers/analytics-worker.js",
+    "analytics:refresh": "node src/workers/analytics-worker.js --once",
+    "reminders:worker": "node src/workers/monthly-reminder-worker.js",
+    "reminders:run": "node src/workers/monthly-reminder-worker.js --once",
+    "test:sprint7a": "node src/scripts/test-sprint7a.js",
+    "test:sprint7b": "node src/scripts/test-sprint7b.js",
+    "test:sprint7c": "node src/scripts/test-sprint7c.js",
+    "test:sprint8": "node src/scripts/test-sprint8.js",
+    "test:sprint9h": "node src/scripts/test-sprint9h.js",
+    "test:sprint9i": "node src/scripts/test-sprint9i.js",
+    "test:sprint9j": "node src/scripts/test-sprint9j.js",
+    "test:integration": "node src/scripts/test-sprint8.js"
+  },
+  "keywords": [
+    "hivemart",
+    "ecommerce",
+    "event-driven",
+    "express",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@opensearch-project/opensearch": "^3.10.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "kafkajs": "^2.2.4",
+    "morgan": "^1.10.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
